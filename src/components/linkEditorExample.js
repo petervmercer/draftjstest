@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Editor, EditorState, RichUtils, convertToRaw, convertFromRaw, CompositeDecorator} from 'draft-js';
 
-class LinkEditorExample extends React.Component {
+class LinkedEditorExample extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,7 +22,7 @@ class LinkEditorExample extends React.Component {
         this.onChange = (editorState) => this.setState({editorState});
         this.logState = () => {
             const content = this.state.editorState.getCurrentContent();
-            console.log(convertToRaw(content));
+            console.log(JSON.stringify(convertToRaw(content)));
         };
 
         this.promptForLink = this._promptForLink.bind(this);
@@ -209,4 +209,4 @@ const styles = {
     },
 };
 
-export default LinkEditorExample;
+export default LinkedEditorExample;
